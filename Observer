@@ -1,0 +1,35 @@
+class Subject:
+    def _init_(self):
+        self._observers = []
+
+    def attach(self, observer):
+        if observer not in self._observers:
+            self._observers.append(observer)
+
+    def detach(self, observer):
+        try:
+            self._observers.remove(observer)
+        except ValueError:
+            pass
+
+    def notify(self, value=None):
+        for observer in self._observers:
+            observer.update(value)
+
+class Observar:
+    def update(self, value):
+        print("Obter valor: {}".format(value))
+
+if _name_ == "_main_":
+    subject = Subject()
+    observerA = Observer()
+    observerB = Observer()
+
+    subject.attach(observerA)
+    subject.attach(observerB)
+
+    subject.notify("Bem vindo!")
+
+    subject.detach(observerB)
+
+    subject.notify("Volte sempre!")
