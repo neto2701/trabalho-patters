@@ -1,0 +1,24 @@
+class Conta:
+    def request(self):
+        print("Conta: Verificando...")
+
+class Proxy:
+    def _init_(self, conta: Conta):
+        self._conta = conta
+
+    def request(self):
+        if self.verificar_acesso():
+            self._conta.request()
+            self.login()
+
+    def verificar_acesso(self):
+        print("Verificando acesso da sua conta.")
+        return True
+
+    def login_acesso(self):
+        print("Horario de login.")
+
+if _name_ == "_main_":
+    conta = Conta()
+    proxy = Proxy(conta)
+    proxy.request()
