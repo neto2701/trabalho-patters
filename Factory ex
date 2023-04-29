@@ -1,0 +1,25 @@
+class Vaca:
+    def _init_(self, name):
+        self._name = name
+
+    def speak(self):
+        return "MUU!"
+
+class Galinha:
+    def _init_(self, name):
+        self._name = name
+
+    def speak(self):
+        return "pópó!"
+
+def get_pet(pet="Vaca"):
+    pets = dict(vaca=Vaca("Leite"), galinha=Galinha("Ovos"))
+
+    return pets[pet]
+
+if _name_ == "_main_":
+    d = get_pet("vaca")
+    print(d.speak())
+
+    c = get_pet("galinha")
+    print(c.speak())
